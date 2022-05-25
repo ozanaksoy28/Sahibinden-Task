@@ -14,6 +14,8 @@ namespace sahibinden
         static void Main(string[] args)
         {
             string url = "https://www.sahibinden.com";
+            int total=0;
+            
             HtmlWeb web = new HtmlWeb();
             //used HAP package to get source code
             HtmlDocument document = web.Load(url);
@@ -29,7 +31,11 @@ namespace sahibinden
             {
                 Console.WriteLine(product.Title + "         " + product.Price);
                 writer.WriteLine(product.Title + "         " + product.Price);
+                total = total + Int32.Parse(String.Join("", product.Price.Split(".")));
             }
+            int avarage = 0;
+            avarage = total / (products.Count);
+            Console.WriteLine("Avarage Price: "+avarage);
         }
         public static void CreateProduct(string url)
         {
