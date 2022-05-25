@@ -31,11 +31,13 @@ namespace sahibinden
             {
                 Console.WriteLine(product.Title + "         " + product.Price);
                 writer.WriteLine(product.Title + "         " + product.Price);
+                //Transform string to int, split dots between numbers and sum all prices.
                 total = total + Int32.Parse(String.Join("", product.Price.Split(".")));
             }
-            int avarage = 0;
-            avarage = total / (products.Count);
-            Console.WriteLine("Avarage Price: "+avarage);
+            //Take average of prices.
+            int average = 0;
+            average = total / (products.Count);
+            Console.WriteLine("Avarage Price: "+average);
         }
         public static void CreateProduct(string url)
         {
